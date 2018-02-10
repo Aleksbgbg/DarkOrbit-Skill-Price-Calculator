@@ -52,9 +52,9 @@
 
         public int MaxValue { get; }
 
-        internal void UpdateValue(Func<int, int> predicate)
+        internal void UpdateValue(Func<int, int> method)
         {
-            Value = predicate(Value);
+            Value = method(Value);
         }
     }
 }

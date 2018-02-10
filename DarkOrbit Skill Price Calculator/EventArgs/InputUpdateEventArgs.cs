@@ -4,11 +4,11 @@
 
     internal class InputUpdateEventArgs : EventArgs
     {
-        internal InputUpdateEventArgs(Func<int, int> newValuePredicate)
+        internal InputUpdateEventArgs(Func<int, int> newValueConversionMethod)
         {
-            NewValuePredicate = newValuePredicate;
+            NewValueConversionMethod = newValueConversionMethod;
         }
 
-        public Func<int, int> NewValuePredicate { get; }
+        public Func<int, int> NewValueConversionMethod { get; }
     }
 }

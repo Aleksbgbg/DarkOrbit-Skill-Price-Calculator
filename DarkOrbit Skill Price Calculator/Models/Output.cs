@@ -6,11 +6,11 @@
 
     internal class Output : PropertyChangedBase
     {
-        private readonly Func<int, int> _valuePredicate;
+        private readonly Func<int, int> _valueUpdateMethod;
 
-        internal Output(Func<int, int> valuePredicate)
+        internal Output(Func<int, int> valueUpdateMethod)
         {
-            _valuePredicate = valuePredicate;
+            _valueUpdateMethod = valueUpdateMethod;
         }
 
         private int _value;
@@ -29,7 +29,7 @@
 
         internal void UpdateValue(SkillStats skillStats)
         {
-            Value = _valuePredicate(ComputeLogdisks(skillStats.InitialResearchPoint, skillStats.FinalResearchPoint) - skillStats.LogdiskCount);
+            Value = _valueUpdateMethod(ComputeLogdisks(skillStats.InitialResearchPoint, skillStats.FinalResearchPoint) - skillStats.LogdiskCount);
         }
 
         private static int ComputeLogdisks(int initialResearchPoint, int finalResearchPoint)
