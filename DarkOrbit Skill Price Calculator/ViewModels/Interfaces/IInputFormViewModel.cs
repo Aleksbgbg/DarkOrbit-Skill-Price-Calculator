@@ -8,6 +8,6 @@
     {
         InputForm InputForm { get; }
 
-        void Initialise(string description, int minValue, int increment, int maxValue, SkillStats skillStats, Action<SkillStats, int> statTransformer);
+        void Initialise(string description, int minValue, int increment, int maxValue, Action<SkillStats, int> statTransformer);
     }
 }

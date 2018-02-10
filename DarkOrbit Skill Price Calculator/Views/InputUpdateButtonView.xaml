@@ -7,5 +7,5 @@
              xmlns:ViewModels="clr-namespace:DarkOrbitSkillPriceCalculator.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance ViewModels:InputUpdateButtonViewModel}">
-    <Button Content="{Binding InputUpdateButton.Text, Mode=OneTime}" Width="50" Margin="5, 0" Caliburn:Message.Attach="UpdateInput"/>
+    <RepeatButton Content="{Binding InputUpdateButton.Text, Mode=OneTime}" Width="50" Margin="5, 0" Caliburn:Message.Attach="UpdateInput"/>
 </UserControl>

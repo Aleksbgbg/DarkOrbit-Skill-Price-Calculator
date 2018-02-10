@@ -5,22 +5,19 @@
 
     internal class OutputViewModel : ViewModelBase, IOutputViewModel
     {
-        private SkillStats _skillStats;
-
         public Output Output { get; private set; }
 
-        public void Initialise(Output output, SkillStats skillStats)
+        public void Initialise(Output output)
         {
             Output = output;
-            _skillStats = skillStats;
 
-            void UpdateOuptut()
+            void UpdateOutput()
             {
-                Output.UpdateValue(_skillStats);
+                Output.UpdateValue(SkillStats.Instance);
             }
 
-            _skillStats.PropertyChanged += (sender, e) => UpdateOuptut();
-            UpdateOuptut();
+            SkillStats.Instance.PropertyChanged += (sender, e) => UpdateOutput();
+            UpdateOutput();
         }
     }
 }

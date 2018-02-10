@@ -4,6 +4,8 @@
 
     internal class SkillStats : PropertyChangedBase
     {
+        public static SkillStats Instance { get; } = new SkillStats();
+
         private int _initialResearchPoint;
         public int InitialResearchPoint
         {

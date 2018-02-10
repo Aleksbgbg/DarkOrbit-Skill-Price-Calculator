@@ -4,6 +4,6 @@
 
     internal interface IOutputViewModel : IViewModelBase
     {
-        void Initialise(Output output, SkillStats skillStats);
+        void Initialise(Output output);
     }
 }

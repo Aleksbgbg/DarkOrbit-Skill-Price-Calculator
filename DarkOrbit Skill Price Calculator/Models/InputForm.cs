@@ -6,13 +6,10 @@
 
     internal class InputForm : PropertyChangedBase
     {
-        private readonly SkillStats _skillStats;
-
         private readonly Action<SkillStats, int> _statTransformer;
 
-        internal InputForm(string description, int minValue, int maxValue, SkillStats skillStats, Action<SkillStats, int> statTransformer)
+        internal InputForm(string description, int minValue, int maxValue, Action<SkillStats, int> statTransformer)
         {
-            _skillStats = skillStats;
             _statTransformer = statTransformer;
 
             Description = description;
@@ -49,7 +46,7 @@
 
                 NotifyOfPropertyChange(() => Value);
 
-                _statTransformer(_skillStats, _value);
+                _statTransformer(SkillStats.Instance, _value);
             }
         }
 

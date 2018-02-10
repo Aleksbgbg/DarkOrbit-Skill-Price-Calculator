@@ -10,10 +10,10 @@
 
     internal class InputFactory : IInputFactory
     {
-        public IInputFormViewModel MakeInputForm(string description, int minValue, int increment, int maxValue, SkillStats skillStats, Action<SkillStats, int> statTransformer)
+        public IInputFormViewModel MakeInputForm(string description, int minValue, int increment, int maxValue, Action<SkillStats, int> statTransformer)
         {
             IInputFormViewModel inputFormViewModel = IoC.Get<IInputFormViewModel>();
-            inputFormViewModel.Initialise(description, minValue, increment, maxValue, skillStats, statTransformer);
+            inputFormViewModel.Initialise(description, minValue, increment, maxValue, statTransformer);
 
             return inputFormViewModel;
         }
@@ -26,10 +26,10 @@
             return inputUpdateButtonViewModel;
         }
 
-        public IOutputViewModel MakeOutput(Output output, SkillStats skillStats)
+        public IOutputViewModel MakeOutput(Output output)
         {
             IOutputViewModel outputViewModel = IoC.Get<IOutputViewModel>();
-            outputViewModel.Initialise(output, skillStats);
+            outputViewModel.Initialise(output);
 
             return outputViewModel;
         }

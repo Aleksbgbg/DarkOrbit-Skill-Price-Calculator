@@ -12,8 +12,6 @@
     {
         public MainViewModel(IInputFactory inputFactory)
         {
-            SkillStats skillStats = new SkillStats();
-
             IEnumerable<IInputFormViewModel> GetInputForms()
             {
                 string[] descriptions = { "Enter Current Skill Points:", "Enter Required Skill Points:", "Enter Current Logdisks:" };
@@ -29,7 +27,7 @@
 
                 for (int index = 0; index < 3; ++index)
                 {
-                    yield return inputFactory.MakeInputForm(descriptions[index], minValues[index], increments[index], maxValues[index], skillStats, actions[index]);
+                    yield return inputFactory.MakeInputForm(descriptions[index], minValues[index], increments[index], maxValues[index], actions[index]);
                 }
             }
 
@@ -39,7 +37,7 @@
                     new Output(value => value),
                     new Output(value => value * 100)
 
-            }.Select(output => inputFactory.MakeOutput(output, skillStats)).ToArray();
+            }.Select((output, skillStats) => inputFactory.MakeOutput(output)).ToArray();
         }
 
         public IInputFormViewModel[] InputForms { get; }
