@@ -72,6 +72,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\InputFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InputUpdateButtonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,6 +88,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="EventArgs\InputUpdateEventArgs.cs" />
+    <Compile Include="Factories\Interfaces\IInputFactory.cs" />
+    <Compile Include="Factories\InputFactory.cs" />
+    <Compile Include="Models\InputForm.cs" />
+    <Compile Include="Models\InputUpdateButton.cs" />
+    <Compile Include="ViewModels\InputFormViewModel.cs" />
+    <Compile Include="ViewModels\InputUpdateButtonViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IInputFormViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IInputUpdateButtonViewModel.cs" />
+    <Compile Include="Views\InputFormView.xaml.cs">
+      <DependentUpon>InputFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InputUpdateButtonView.xaml.cs">
+      <DependentUpon>InputUpdateButtonView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -157,7 +180,6 @@
     <Folder Include="Converters\" />
     <Folder Include="Extensions\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Models\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>

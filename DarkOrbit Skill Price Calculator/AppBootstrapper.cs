@@ -6,6 +6,8 @@
 
     using Caliburn.Micro;
 
+    using DarkOrbitSkillPriceCalculator.Factories;
+    using DarkOrbitSkillPriceCalculator.Factories.Interfaces;
     using DarkOrbitSkillPriceCalculator.ViewModels;
     using DarkOrbitSkillPriceCalculator.ViewModels.Interfaces;
 
@@ -27,10 +29,13 @@
         {
             // Register Services
             _container.Singleton<IWindowManager, WindowManager>();
+            _container.Singleton<IInputFactory, InputFactory>();
 
             // Register ViewModels
             _container.Singleton<IShellViewModel, ShellViewModel>();
             _container.Singleton<IMainViewModel, MainViewModel>();
+            _container.PerRequest<IInputFormViewModel, InputFormViewModel>();
+            _container.PerRequest<IInputUpdateButtonViewModel, InputUpdateButtonViewModel>();
         }
 
         protected override object GetInstance(Type service, string key)
