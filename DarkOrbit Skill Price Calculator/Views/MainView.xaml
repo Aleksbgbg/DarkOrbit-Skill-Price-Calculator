@@ -7,4 +7,26 @@
 			 xmlns:ViewModels="clr-namespace:DarkOrbitSkillPriceCalculator.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance ViewModels:MainViewModel}">
+    <StackPanel>
+        <Image Source="{StaticResource Logo}" Width="250" Height="250"/>
+        <TextBlock Text="DarkOrbit Skill Price Calculator"/>
+        <ItemsControl x:Name="InputForms"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Image Source="{StaticResource Logdisk}" Width="50" Height="50"/>
+            <TextBlock Grid.Column="1" Text="Logdisk"/>
+            
+            <Image Grid.Row="1" Source="{StaticResource Default Coins}" Width="50" Height="50"/>
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="Coins"/>
+        </Grid>
+    </StackPanel>
 </UserControl>

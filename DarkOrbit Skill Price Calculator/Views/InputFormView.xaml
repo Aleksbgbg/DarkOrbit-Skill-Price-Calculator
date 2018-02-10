@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="DarkOrbitSkillPriceCalculator.Views.InputFormView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ViewModels="clr-namespace:DarkOrbitSkillPriceCalculator.ViewModels"
+             xmlns:WpfToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+			 mc:Ignorable="d"
+			 d:DataContext="{d:DesignInstance ViewModels:InputFormViewModel}">
+    <StackPanel Orientation="Horizontal">
+        <TextBlock Text="{Binding InputForm.Description, Mode=OneTime}"/>
+
+        <WpfToolkit:IntegerUpDown Minimum="{Binding InputForm.MinValue, Mode=OneTime}"
+                                  Value="{Binding InputForm.Value}"
+                                  Maximum="{Binding InputForm.MaxValue, Mode=OneTime}"
+                                  FormatString="N0"/>
+        
+        <ItemsControl x:Name="InputUpdateButtons"/>
+    </StackPanel>
+</UserControl>
