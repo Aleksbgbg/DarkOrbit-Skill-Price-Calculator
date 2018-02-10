@@ -1,7 +1,13 @@
 ﻿namespace DarkOrbitSkillPriceCalculator.ViewModels.Interfaces
 {
+    using System;
+
+    using DarkOrbitSkillPriceCalculator.Models;
+
     internal interface IInputFormViewModel : IViewModelBase
     {
-        void Initialise(string description, int minValue, int increment, int maxValue);
+        InputForm InputForm { get; }
+
+        void Initialise(string description, int minValue, int increment, int maxValue, SkillStats skillStats, Action<SkillStats, int> statTransformer);
     }
 }

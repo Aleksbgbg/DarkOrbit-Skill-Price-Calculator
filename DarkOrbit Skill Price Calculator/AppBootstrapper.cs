@@ -36,6 +36,7 @@
             _container.Singleton<IMainViewModel, MainViewModel>();
             _container.PerRequest<IInputFormViewModel, InputFormViewModel>();
             _container.PerRequest<IInputUpdateButtonViewModel, InputUpdateButtonViewModel>();
+            _container.PerRequest<IOutputViewModel, OutputViewModel>();
         }
 
         protected override object GetInstance(Type service, string key)

@@ -15,15 +15,7 @@
                    HorizontalAlignment="Center" Margin="5"/>
         
         <ItemsControl x:Name="InputForms" HorizontalAlignment="Center"/>
-
-        <StackPanel>
-            <Image Source="{StaticResource Logdisk}" Width="50" Height="50"/>
-            <TextBlock Text="Logdisk"/>
-        </StackPanel>
-
-        <StackPanel>
-            <Image Source="{StaticResource Default Coins}" Width="50" Height="50"/>
-            <TextBlock Text="Coins"/>
-        </StackPanel>
+        
+        <ItemsControl x:Name="Outputs" HorizontalAlignment="Center"/>
     </StackPanel>
 </UserControl>

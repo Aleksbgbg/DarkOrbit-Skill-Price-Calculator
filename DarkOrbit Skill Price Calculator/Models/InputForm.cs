@@ -6,8 +6,15 @@
 
     internal class InputForm : PropertyChangedBase
     {
-        internal InputForm(string description, int minValue, int maxValue)
+        private readonly SkillStats _skillStats;
+
+        private readonly Action<SkillStats, int> _statTransformer;
+
+        internal InputForm(string description, int minValue, int maxValue, SkillStats skillStats, Action<SkillStats, int> statTransformer)
         {
+            _skillStats = skillStats;
+            _statTransformer = statTransformer;
+
             Description = description;
             MinValue = minValue;
             MaxValue = maxValue; // Must occur before Value is set, in order to perform accurate validation
@@ -41,6 +48,8 @@
                 }
 
                 NotifyOfPropertyChange(() => Value);
+
+                _statTransformer(_skillStats, _value);
             }
         }
 

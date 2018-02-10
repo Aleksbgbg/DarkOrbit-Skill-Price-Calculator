@@ -1,5 +1,6 @@
 ﻿namespace DarkOrbitSkillPriceCalculator.ViewModels
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -20,9 +21,9 @@
 
         public IInputUpdateButtonViewModel[] InputUpdateButtons { get; private set; }
 
-        public void Initialise(string description, int minValue, int increment, int maxValue)
+        public void Initialise(string description, int minValue, int increment, int maxValue, SkillStats skillStats, Action<SkillStats, int> statTransformer)
         {
-            InputForm = new InputForm(description, minValue, maxValue);
+            InputForm = new InputForm(description, minValue, maxValue, skillStats, statTransformer);
 
             IEnumerable<IInputUpdateButtonViewModel> GetInputUpdateButtons()
             {

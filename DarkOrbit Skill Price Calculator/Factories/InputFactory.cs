@@ -1,5 +1,7 @@
 ﻿namespace DarkOrbitSkillPriceCalculator.Factories
 {
+    using System;
+
     using Caliburn.Micro;
 
     using DarkOrbitSkillPriceCalculator.Factories.Interfaces;
@@ -8,10 +10,10 @@
 
     internal class InputFactory : IInputFactory
     {
-        public IInputFormViewModel MakeInputForm(string description, int minValue, int increment, int maxValue)
+        public IInputFormViewModel MakeInputForm(string description, int minValue, int increment, int maxValue, SkillStats skillStats, Action<SkillStats, int> statTransformer)
         {
             IInputFormViewModel inputFormViewModel = IoC.Get<IInputFormViewModel>();
-            inputFormViewModel.Initialise(description, minValue, increment, maxValue);
+            inputFormViewModel.Initialise(description, minValue, increment, maxValue, skillStats, statTransformer);
 
             return inputFormViewModel;
         }
@@ -22,6 +24,14 @@
             inputUpdateButtonViewModel.Initialise(inputUpdateButton);
 
             return inputUpdateButtonViewModel;
+        }
+
+        public IOutputViewModel MakeOutput(Output output, SkillStats skillStats)
+        {
+            IOutputViewModel outputViewModel = IoC.Get<IOutputViewModel>();
+            outputViewModel.Initialise(output, skillStats);
+
+            return outputViewModel;
         }
     }
 }
