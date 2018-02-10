@@ -12,10 +12,10 @@
         {
             IEnumerable<IInputFormViewModel> GetInputForms()
             {
-                string[] descriptions = { "Enter Current Skill Points", "Enter Required Skill Points", "Enter Current Logdisks" };
+                string[] descriptions = { "Enter Current Skill Points:", "Enter Required Skill Points:", "Enter Current Logdisks:" };
                 int[] minValues = { 0, 1, 0 };
                 int[] increments = { 5, 5, 25 };
-                int[] maxValues = { 49, 50, int.MaxValue };
+                int[] maxValues = { 49, 50, 9_999_999 };
 
                 for (int index = 0; index < 3; ++index)
                 {

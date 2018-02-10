@@ -7,14 +7,21 @@
              xmlns:WpfToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance ViewModels:InputFormViewModel}">
-    <StackPanel Orientation="Horizontal">
-        <TextBlock Text="{Binding InputForm.Description, Mode=OneTime}"/>
+    <DockPanel Margin="0, 5">
+        <ItemsControl DockPanel.Dock="Right" x:Name="InputUpdateButtons">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
 
-        <WpfToolkit:IntegerUpDown Minimum="{Binding InputForm.MinValue, Mode=OneTime}"
+        <WpfToolkit:IntegerUpDown DockPanel.Dock="Right"
+                                  Minimum="{Binding InputForm.MinValue, Mode=OneTime}"
                                   Value="{Binding InputForm.Value}"
                                   Maximum="{Binding InputForm.MaxValue, Mode=OneTime}"
-                                  FormatString="N0"/>
+                                  FormatString="N0" Width="100" Margin="5, 0"/>
         
-        <ItemsControl x:Name="InputUpdateButtons"/>
-    </StackPanel>
+        <TextBlock DockPanel.Dock="Left" Text="{Binding InputForm.Description, Mode=OneTime}" HorizontalAlignment="Right" Margin="5"/>
+    </DockPanel>
 </UserControl>

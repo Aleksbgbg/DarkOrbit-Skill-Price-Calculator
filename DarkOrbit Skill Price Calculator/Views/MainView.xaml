@@ -5,29 +5,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:ViewModels="clr-namespace:DarkOrbitSkillPriceCalculator.ViewModels"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance ViewModels:MainViewModel}">
+             d:DataContext="{d:DesignInstance ViewModels:MainViewModel}"
+             FontSize="16">
     <StackPanel>
-        <Image Source="{StaticResource Logo}" Width="250" Height="250"/>
-        <TextBlock Text="DarkOrbit Skill Price Calculator"/>
+        <Image Source="{StaticResource Logo}" Height="140"
+               HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Text="Skill Price Calculator" FontSize="38"
+                   FontWeight="DemiBold" Foreground="DodgerBlue"
+                   HorizontalAlignment="Center" Margin="5"/>
         
-        <ItemsControl x:Name="InputForms"/>
-        
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            
+        <ItemsControl x:Name="InputForms" HorizontalAlignment="Center"/>
+
+        <StackPanel>
             <Image Source="{StaticResource Logdisk}" Width="50" Height="50"/>
-            <TextBlock Grid.Column="1" Text="Logdisk"/>
-            
-            <Image Grid.Row="1" Source="{StaticResource Default Coins}" Width="50" Height="50"/>
-            <TextBlock Grid.Column="1" Grid.Row="1" Text="Coins"/>
-        </Grid>
+            <TextBlock Text="Logdisk"/>
+        </StackPanel>
+
+        <StackPanel>
+            <Image Source="{StaticResource Default Coins}" Width="50" Height="50"/>
+            <TextBlock Text="Coins"/>
+        </StackPanel>
     </StackPanel>
 </UserControl>
