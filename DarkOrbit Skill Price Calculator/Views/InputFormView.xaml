@@ -5,8 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:ViewModels="clr-namespace:DarkOrbitSkillPriceCalculator.ViewModels"
              xmlns:WpfToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
-			 mc:Ignorable="d"
-			 d:DataContext="{d:DesignInstance ViewModels:InputFormViewModel}">
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance ViewModels:InputFormViewModel}">
     <StackPanel Orientation="Horizontal">
         <TextBlock Text="{Binding InputForm.Description, Mode=OneTime}"/>
 
