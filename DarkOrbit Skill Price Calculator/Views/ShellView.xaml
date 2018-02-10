@@ -7,6 +7,9 @@
 		xmlns:ViewModels="clr-namespace:DarkOrbitSkillPriceCalculator.ViewModels"
 		mc:Ignorable="d"
 		d:DataContext="{d:DesignInstance ViewModels:ShellViewModel}"
-        Icon="{StaticResource Calculator}">
+        Icon="{StaticResource Calculator}"
+        Width="875" Height="600"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen">
 		<ContentControl Caliburn:View.Model="{Binding MainViewModel}"/>
 </Window>

@@ -14,8 +14,8 @@
                    FontWeight="DemiBold" Foreground="DodgerBlue"
                    HorizontalAlignment="Center" Margin="5"/>
         
-        <ItemsControl x:Name="InputForms" HorizontalAlignment="Center"/>
+        <ItemsControl x:Name="InputForms" HorizontalAlignment="Center" Margin="5"/>
         
-        <ItemsControl x:Name="Outputs" HorizontalAlignment="Center"/>
+        <ItemsControl x:Name="Outputs" HorizontalAlignment="Center" Margin="5"/>
     </StackPanel>
 </UserControl>

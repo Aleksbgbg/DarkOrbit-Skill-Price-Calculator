@@ -7,8 +7,8 @@
 			 xmlns:ViewModels="clr-namespace:DarkOrbitSkillPriceCalculator.ViewModels"
 			 mc:Ignorable="d"
 			 d:DataContext="{d:DesignInstance ViewModels:OutputViewModel}">
-    <StackPanel Orientation="Horizontal">
-        <Image Width="50" Height="50" Margin="5, 0">
+    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+        <Image Height="85" Margin="5, 0">
             <Image.Source>
                 <MultiBinding Converter="{x:Static Converters:ImageLocatorConverter.Instance}">
                     <Binding Path="Output.Value"/>
@@ -16,6 +16,6 @@
                 </MultiBinding>
             </Image.Source>
         </Image>
-        <TextBlock Text="{Binding Output.Value}"/>
+        <TextBlock Text="{Binding Output.Value, StringFormat={}{0:N0}}" FontSize="36" FontWeight="DemiBold"/>
     </StackPanel>
 </UserControl>
