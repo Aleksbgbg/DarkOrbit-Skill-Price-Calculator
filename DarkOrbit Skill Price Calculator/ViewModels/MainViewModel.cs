@@ -14,20 +14,23 @@
         {
             IEnumerable<IInputFormViewModel> GetInputForms()
             {
-                string[] descriptions = { "Enter Current Skill Points:", "Enter Required Skill Points:", "Enter Current Logdisks:" };
-                int[] minValues = { 0, 1, 0 };
-                int[] increments = { 5, 5, 25 };
-                int[] maxValues = { 49, 50, 9_999_999 };
+                string[] descriptions = { "Enter Current Skill Points:", "Enter Required Skill Points:", "Enter Current Logdisks:", "Enter Logdisk Price:" };
+                int[] minValues = { 0, 1, 0, 0 };
+                int[] defaultValues = { 0, 1, 0, 100 };
+                int[] increments = { 5, 5, 25, 5 };
+                int[] maxValues = { 49, 50, 9_999_999, 100 };
                 Action<SkillStats, int>[] actions =
                 {
-                        (stats, currentValue) => stats.InitialResearchPoint = currentValue,
-                        (stats, currentValue) => stats.FinalResearchPoint = currentValue,
-                        (stats, currentValue) => stats.LogdiskCount = currentValue
+                        (skillStats, currentValue) => skillStats.InitialResearchPoint = currentValue,
+                        (skillStats, currentValue) => skillStats.FinalResearchPoint = currentValue,
+                        (skillStats, currentValue) => skillStats.LogdiskCount = currentValue,
+                        (skillStats, currentValue) => skillStats.LogdiskPrice = currentValue
                 };
 
-                for (int index = 0; index < 3; ++index)
+                for (int index = 0; index < 4; ++index)
                 {
-                    yield return inputFactory.MakeInputForm(descriptions[index], minValues[index], increments[index], maxValues[index], actions[index]);
+                    yield return inputFactory.MakeInputForm(descriptions[index], minValues[index], defaultValues[index],
+                                                            increments[index], maxValues[index], actions[index]);
                 }
             }
 
@@ -35,7 +38,7 @@
             Outputs = new Output[]
             {
                     new Output(value => value, value => "Logdisk"),
-                    new Output(value => value * 100, value =>
+                    new Output(value => value * SkillStats.Instance.LogdiskPrice, value =>
                     {
                         if (value < 10_000) return "One Coin";
 
@@ -44,7 +47,7 @@
                         return "Three Coins";
                     })
 
-            }.Select(output => inputFactory.MakeOutput(output )).ToArray();
+            }.Select(inputFactory.MakeOutput).ToArray();
         }
 
         public IInputFormViewModel[] InputForms { get; }

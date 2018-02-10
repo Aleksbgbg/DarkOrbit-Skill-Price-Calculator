@@ -7,7 +7,7 @@
 
     internal interface IInputFactory
     {
-        IInputFormViewModel MakeInputForm(string description, int minValue, int increment, int maxValue, Action<SkillStats, int> statTransformer);
+        IInputFormViewModel MakeInputForm(string description, int minValue, int defaultValue, int increment, int maxValue, Action<SkillStats, int> statTransformer);
 
         IInputUpdateButtonViewModel MakeInputUpdateButton(InputUpdateButton inputUpdateButton);
 

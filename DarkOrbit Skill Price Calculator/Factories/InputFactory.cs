@@ -10,10 +10,10 @@
 
     internal class InputFactory : IInputFactory
     {
-        public IInputFormViewModel MakeInputForm(string description, int minValue, int increment, int maxValue, Action<SkillStats, int> statTransformer)
+        public IInputFormViewModel MakeInputForm(string description, int minValue, int defaultValue, int increment, int maxValue, Action<SkillStats, int> statTransformer)
         {
             IInputFormViewModel inputFormViewModel = IoC.Get<IInputFormViewModel>();
-            inputFormViewModel.Initialise(description, minValue, increment, maxValue, statTransformer);
+            inputFormViewModel.Initialise(description, minValue, defaultValue, increment, maxValue, statTransformer);
 
             return inputFormViewModel;
         }

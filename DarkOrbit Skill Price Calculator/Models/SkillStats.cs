@@ -47,5 +47,19 @@
                 NotifyOfPropertyChange(() => LogdiskCount);
             }
         }
+
+        private int _logdiskPrice;
+        public int LogdiskPrice
+        {
+            get => _logdiskPrice;
+
+            set
+            {
+                if (_logdiskPrice == value) return;
+
+                _logdiskPrice = value;
+                NotifyOfPropertyChange(() => LogdiskPrice);
+            }
+        }
     }
 }

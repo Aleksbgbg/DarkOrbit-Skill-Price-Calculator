@@ -8,14 +8,14 @@
     {
         private readonly Action<SkillStats, int> _statTransformer;
 
-        internal InputForm(string description, int minValue, int maxValue, Action<SkillStats, int> statTransformer)
+        internal InputForm(string description, int minValue, int defaultValue, int maxValue, Action<SkillStats, int> statTransformer)
         {
             _statTransformer = statTransformer;
 
             Description = description;
             MinValue = minValue;
             MaxValue = maxValue; // Must occur before Value is set, in order to perform accurate validation
-            Value = minValue;
+            Value = defaultValue;
         }
 
         public string Description { get; }

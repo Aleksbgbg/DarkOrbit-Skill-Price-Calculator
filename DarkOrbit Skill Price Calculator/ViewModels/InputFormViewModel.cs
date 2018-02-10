@@ -21,9 +21,9 @@
 
         public IInputUpdateButtonViewModel[] InputUpdateButtons { get; private set; }
 
-        public void Initialise(string description, int minValue, int increment, int maxValue, Action<SkillStats, int> statTransformer)
+        public void Initialise(string description, int minValue, int defaultValue, int increment, int maxValue, Action<SkillStats, int> statTransformer)
         {
-            InputForm = new InputForm(description, minValue, maxValue, statTransformer);
+            InputForm = new InputForm(description, minValue, defaultValue, maxValue, statTransformer);
 
             IEnumerable<IInputUpdateButtonViewModel> GetInputUpdateButtons()
             {
