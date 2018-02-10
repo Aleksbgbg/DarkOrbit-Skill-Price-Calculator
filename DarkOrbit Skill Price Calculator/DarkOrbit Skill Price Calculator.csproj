@@ -92,7 +92,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="EventArgs\InputUpdateEventArgs.cs" />
     <Compile Include="Factories\Interfaces\IInputFactory.cs" />
     <Compile Include="Factories\InputFactory.cs" />
     <Compile Include="Models\InputForm.cs" />
@@ -189,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converters\" />
+    <Folder Include="EventArgs\" />
     <Folder Include="Extensions\" />
     <Folder Include="Helpers\" />
     <Folder Include="Services\" />

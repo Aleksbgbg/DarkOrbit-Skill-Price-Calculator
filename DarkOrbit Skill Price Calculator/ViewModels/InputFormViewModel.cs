@@ -35,7 +35,7 @@
                         new InputUpdateButton($"{maxValue:N0}", value => maxValue)
                 }.Select(_inputFactory.MakeInputUpdateButton))
                 {
-                    inputUpdateButtonViewModel.InputUpdated += (sender, e) => InputForm.UpdateValue(e.NewValueConversionMethod);
+                    inputUpdateButtonViewModel.InputUpdated += (sender, e) => InputForm.UpdateValue(inputUpdateButtonViewModel.InputUpdateButton.Action);
 
                     yield return inputUpdateButtonViewModel;
                 }
