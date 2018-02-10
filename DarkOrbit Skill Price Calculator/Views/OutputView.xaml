@@ -3,11 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Converters="clr-namespace:DarkOrbitSkillPriceCalculator.Converters"
 			 xmlns:ViewModels="clr-namespace:DarkOrbitSkillPriceCalculator.ViewModels"
 			 mc:Ignorable="d"
 			 d:DataContext="{d:DesignInstance ViewModels:OutputViewModel}">
     <StackPanel Orientation="Horizontal">
-        <Image Source="{StaticResource Default Coins}" Width="50" Height="50" Margin="5, 0"/>
+        <Image Width="50" Height="50" Margin="5, 0">
+            <Image.Source>
+                <MultiBinding Converter="{x:Static Converters:ImageLocatorConverter.Instance}">
+                    <Binding Path="Output.Value"/>
+                    <Binding Path="Output.ImageLocatorMethod" Mode="OneTime"/>
+                </MultiBinding>
+            </Image.Source>
+        </Image>
         <TextBlock Text="{Binding Output.Value}"/>
     </StackPanel>
 </UserControl>

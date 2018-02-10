@@ -8,9 +8,10 @@
     {
         private readonly Func<int, int> _valueUpdateMethod;
 
-        internal Output(Func<int, int> valueUpdateMethod)
+        internal Output(Func<int, int> valueUpdateMethod, Func<int, string> imageLocatorMethod)
         {
             _valueUpdateMethod = valueUpdateMethod;
+            ImageLocatorMethod = imageLocatorMethod;
         }
 
         private int _value;
@@ -26,6 +27,8 @@
                 NotifyOfPropertyChange(() => Value);
             }
         }
+
+        public Func<int, string> ImageLocatorMethod { get; }
 
         internal void UpdateValue(SkillStats skillStats)
         {

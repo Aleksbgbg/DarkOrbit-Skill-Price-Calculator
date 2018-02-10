@@ -34,10 +34,17 @@
             InputForms = GetInputForms().ToArray();
             Outputs = new Output[]
             {
-                    new Output(value => value),
-                    new Output(value => value * 100)
+                    new Output(value => value, value => "Logdisk"),
+                    new Output(value => value * 100, value =>
+                    {
+                        if (value < 10_000) return "One Coin";
 
-            }.Select((output, skillStats) => inputFactory.MakeOutput(output)).ToArray();
+                        if (value < 100_000) return "Two Coins";
+
+                        return "Three Coins";
+                    })
+
+            }.Select(output => inputFactory.MakeOutput(output )).ToArray();
         }
 
         public IInputFormViewModel[] InputForms { get; }

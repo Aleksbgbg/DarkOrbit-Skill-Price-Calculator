@@ -92,6 +92,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Converters\ImageLocatorConverter.cs" />
     <Compile Include="Factories\Interfaces\IInputFactory.cs" />
     <Compile Include="Factories\InputFactory.cs" />
     <Compile Include="Models\InputForm.cs" />
@@ -187,7 +188,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Converters\" />
     <Folder Include="EventArgs\" />
     <Folder Include="Extensions\" />
     <Folder Include="Helpers\" />
