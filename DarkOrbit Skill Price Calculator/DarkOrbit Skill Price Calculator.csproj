@@ -198,7 +198,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Calculator.ico" />
-    <Resource Include="Images\Default Coins.png" />
     <Resource Include="Images\Logdisk.png" />
     <Resource Include="Images\Logo.png" />
     <Resource Include="Images\One Coin.png" />

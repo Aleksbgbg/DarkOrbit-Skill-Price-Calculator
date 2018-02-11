@@ -11,5 +11,5 @@
         Width="875" Height="600"
         ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen">
-		<ContentControl Caliburn:View.Model="{Binding MainViewModel}"/>
+		<ContentControl Caliburn:View.Model="{Binding MainViewModel, Mode=OneTime}"/>
 </Window>
